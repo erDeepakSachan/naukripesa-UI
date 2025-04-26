@@ -1,5 +1,5 @@
 window.AppSettings = {
-    "ApiBaseUrl": "https://admin-panel-spa-uibuild.onrender.com/api",
+    "ApiBaseUrl": "https://localhost:7031/api",
     "AppName": "Admin Panel",
     "LogoPath": "/img/logo.png"
 } ;
@@ -21,6 +21,33 @@ function loadScriptSync(src) {
 
     document.head.appendChild(script);
 }
+
+function loadThemeCss() {
+  const themeName = `${(localStorage.getItem('app-theme-css') || 'bootstrap-united')}.css`;
+
+  let link = document.getElementById('theme-css-link');
+
+  if (link) {
+    link.href = themeName;
+  } else {
+    link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = themeName;
+    link.type = 'text/css';
+    link.id = 'theme-css-link';
+
+    const scriptTag = document.getElementById('app-config-js');
+
+    if (scriptTag) {
+      scriptTag.parentNode.insertBefore(link, scriptTag.nextSibling);
+    } else {
+      console.warn("Script tag with id 'app-config-js' not found.");
+      document.head.appendChild(link);
+    }
+  }
+}
+
+loadThemeCss();
 
 loadScriptSync(`${window.AppSettings.ApiBaseUrl}/Home/NotyOptions?forError=false`);
 loadScriptSync(`${window.AppSettings.ApiBaseUrl}/Home/NotyOptions?forError=true`);

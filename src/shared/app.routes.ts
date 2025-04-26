@@ -17,6 +17,10 @@ import { UserGroupPermissionComponent } from './../pages/usergrouppermission/use
 import { UserTypeComponent } from './../pages/usertype/usertype.component';
 import { WebpageComponent } from './../pages/webpage/webpage.component';
 import { DashboardComponent } from './../pages/dashboard/dashboard.component';
+import { JobdetailComponent } from './../pages/jobdetail/jobdetail.component';
+import { JoblocationComponent } from './../pages/joblocation/joblocation.component';
+import {HomePageComponent} from './../public-pages/home-page/home-page.component'
+import {PublicLayoutComponent} from './../public-pages/public-layout/public-layout.component'
 
 export const routes: Routes = [
   {
@@ -27,16 +31,18 @@ export const routes: Routes = [
       { path: '', component: AppComponent }
       , { path: '_403', component: _403Component }
       , { path: 'dashboard', component: DashboardComponent }
-      , { path: 'settings', component: SettingComponent }
+      , { path: 'setting', component: SettingComponent }
       , { path: 'access-activities', component: AccessActivityComponent }
-      , { path: 'app-icons', component: AppIconComponent }
-      , { path: 'menu-categories', component: MenuCategoryComponent }
+      , { path: 'AppIcon', component: AppIconComponent }
+      , { path: 'MenuCategory', component: MenuCategoryComponent }
       , { path: 'products', component: ProductComponent }
-      , { path: 'users', component: UserComponent }
-      , { path: 'user-groups', component: UserGroupComponent }
-      , { path: 'user-group-permissions', component: UserGroupPermissionComponent }
-      , { path: 'user-types', component: UserTypeComponent }
-      , { path: 'web-pages', component: WebpageComponent }
+      , { path: 'User', component: UserComponent }
+      , { path: 'UserGroup', component: UserGroupComponent }
+      , { path: 'UserGroupPermission', component: UserGroupPermissionComponent }
+      , { path: 'UserType', component: UserTypeComponent }
+      , { path: 'Webpage', component: WebpageComponent }
+      , { path: 'Jobdetail', component: JobdetailComponent }
+      , { path: 'Joblocation', component: JoblocationComponent }
     ]
   },
   {
@@ -44,5 +50,10 @@ export const routes: Routes = [
     component: AuthLayoutComponent,
     canActivate: [loginGuard],
     children: [{ path: '', component: LoginComponent }]
+  },
+  {
+    path: 'app',
+    component: PublicLayoutComponent,
+    children: [{ path: 'home', component: HomePageComponent }]
   }
 ];

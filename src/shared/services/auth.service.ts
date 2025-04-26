@@ -2,12 +2,13 @@ import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, finalize } from 'rxjs/operators';
 import { NeoContextService } from './neo-context.service';
 import AppConstants from './../app-constants';
 import { withNoAuth } from '../auth.interceptor';
 import { getDecodedAccessToken } from './../utils/auth-utils';
 import { Menu, emptyMenu } from './../menu.entity';
+import { LoaderGifService } from './loader-gif.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
   private neoCtx = inject(NeoContextService);
+  private loader = inject(LoaderGifService);
 
   constructor() {
     this.apiUrl = this.neoCtx.context.AppSettings!.ApiBaseUrl;
@@ -81,6 +83,23 @@ export class AuthService {
         error: () => {
         }
       });
+  }
+
+  clearAppCache(): Observable<boolean> {
+    this.loader.show();
+    return this.http.post<{ isSuccess: boolean }>(`${this.apiUrl}/Home/ClearAppCache`, {})
+      .pipe(
+        map((response) => {
+          if (response.isSuccess) {
+            return true;
+          } else {
+            return false;
+          }
+        }),
+        catchError(() => {
+          return of(false);
+        })
+      ).pipe(finalize(() => this.loader.hide()));
   }
 
   getParsedJwtToken(): any {

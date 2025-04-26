@@ -34,4 +34,14 @@ export class MainLayoutComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+
+  clearAppCache() {
+    this.authService.clearAppCache().subscribe(success => {
+      if (success) {
+        alert("App cache cleared. Reloading the page ...");
+        localStorage.removeItem('app-theme-css');
+        this.neoContextSrv.context.location.reload();
+      }
+    });
+  }
 }
