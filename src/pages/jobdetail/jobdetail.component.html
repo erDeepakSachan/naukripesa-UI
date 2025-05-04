@@ -23,19 +23,15 @@
         <table class="table table-bordered table-striped table-condensed zui-table" style="min-height:352px;">
           <thead>
             <tr>
-              <th>JobDetailId</th>
-<th>CompanyId</th>
-<th>JobLocationId</th>
-<th>InterviewDate</th>
-<th>InterviewTime</th>
-<th>InterviewLocation</th>
-<th>Qualification</th>
-<th>ContactNumber</th>
-<th>Department</th>
-<th>OtherDetail</th>
-<th>Company</th>
-<th>JobLocation</th>
-
+              <th>Company</th>
+              <th>Job Location</th>
+              <th>Interview Date</th>
+              <th>Interview Time</th>
+              <th>Interview Location</th>
+              <th>Qualification</th>
+              <th>Contact Number</th>
+              <th>Department</th>
+              <th>Other Detail</th>
               <th class="zui-sticky-col">Action</th>
             </tr>
           </thead>
@@ -46,33 +42,29 @@
             <tr [attr.data-row-id]="item.JobDetailId" *ngFor="let item of data; let i = index; let last = last">
               <ng-container *ngIf="item.JobDetailId === 0">
                 <td *ngIf="i === 0 || data[i - 1].JobDetailId !== 0; else middleEmptyRow"
-                  style="height:32px; text-align:center; border-bottom:none;" class="no-hover" colspan="5">
+                  style="height:32px; text-align:center; border-bottom:none;" class="no-hover" colspan="10">
                 </td>
                 <ng-template #middleEmptyRow>
                   <td *ngIf="!last && data[i + 1]?.JobDetailId === 0; else lastEmptyRow"
                     style="height:32px; text-align:center; border-top:none; border-bottom:none;" class="no-hover"
-                    colspan="5">
+                    colspan="10">
                   </td>
                 </ng-template>
                 <ng-template #lastEmptyRow>
-                  <td style="height:32px; text-align:center; border-top:none;" class="no-hover" colspan="5">
+                  <td style="height:32px; text-align:center; border-top:none;" class="no-hover" colspan="10">
                   </td>
                 </ng-template>
               </ng-container>
               <ng-container *ngIf="item.JobDetailId !== 0">
-                <td>{{ item.JobDetailId }}</td>
-<td>{{ item.CompanyId }}</td>
-<td>{{ item.JobLocationId }}</td>
-<td>{{ item.InterviewDate }}</td>
-<td>{{ item.InterviewTime }}</td>
-<td>{{ item.InterviewLocation }}</td>
-<td>{{ item.Qualification }}</td>
-<td>{{ item.ContactNumber }}</td>
-<td>{{ item.Department }}</td>
-<td>{{ item.OtherDetail }}</td>
-<td>{{ item.Company }}</td>
-<td>{{ item.JobLocation }}</td>
-
+                <td>{{ item.Company?.Name }}</td>
+                <td>{{ item.JobLocation?.Location }}</td>
+                <td>{{ item.InterviewDate }}</td>
+                <td>{{ item.InterviewTime }}</td>
+                <td>{{ item.InterviewLocation }}</td>
+                <td>{{ item.Qualification }}</td>
+                <td>{{ item.ContactNumber }}</td>
+                <td>{{ item.Department }}</td>
+                <td>{{ item.OtherDetail }}</td>
                 <td>
                   <a href="javascript:void(0);" (click)="edit(item)">Edit</a> |
                   <a href="javascript:void(0);" (click)="delete(item.JobDetailId)">Delete</a>
