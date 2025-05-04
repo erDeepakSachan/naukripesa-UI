@@ -23,48 +23,34 @@
         <table class="table table-bordered table-striped table-condensed zui-table" style="min-height:352px;">
           <thead>
             <tr>
-              <th>JobLocationId</th>
-<th>Location</th>
-<th>CreatedBy</th>
-<th>CreatedOn</th>
-<th>ModifiedBy</th>
-<th>ModifiedOn</th>
-<th>IsArchived</th>
-<th>Jobdetails</th>
-
+			  <th>Location</th>
+			  <th>IsArchived</th>
               <th class="zui-sticky-col">Action</th>
             </tr>
           </thead>
           <tbody id="tbody-content">
             <tr *ngIf="data.length==0">
-              <td colspan="10" style="width:100%; height:44px; text-align:center;">No Records found.</td>
+              <td colspan="3" style="width:100%; height:44px; text-align:center;">No Records found.</td>
             </tr>
             <tr [attr.data-row-id]="item.JobLocationId" *ngFor="let item of data; let i = index; let last = last">
               <ng-container *ngIf="item.JobLocationId === 0">
                 <td *ngIf="i === 0 || data[i - 1].JobLocationId !== 0; else middleEmptyRow"
-                  style="height:32px; text-align:center; border-bottom:none;" class="no-hover" colspan="5">
+                  style="height:32px; text-align:center; border-bottom:none;" class="no-hover" colspan="3">
                 </td>
                 <ng-template #middleEmptyRow>
                   <td *ngIf="!last && data[i + 1]?.JobLocationId === 0; else lastEmptyRow"
                     style="height:32px; text-align:center; border-top:none; border-bottom:none;" class="no-hover"
-                    colspan="5">
+                    colspan="3">
                   </td>
                 </ng-template>
                 <ng-template #lastEmptyRow>
-                  <td style="height:32px; text-align:center; border-top:none;" class="no-hover" colspan="5">
+                  <td style="height:32px; text-align:center; border-top:none;" class="no-hover" colspan="3">
                   </td>
                 </ng-template>
               </ng-container>
               <ng-container *ngIf="item.JobLocationId !== 0">
-                <td>{{ item.JobLocationId }}</td>
-<td>{{ item.Location }}</td>
-<td>{{ item.CreatedBy }}</td>
-<td>{{ item.CreatedOn }}</td>
-<td>{{ item.ModifiedBy }}</td>
-<td>{{ item.ModifiedOn }}</td>
-<td>{{ item.IsArchived }}</td>
-<td>{{ item.Jobdetails }}</td>
-
+				<td>{{ item.Location }}</td>
+				<td><input (click)="$event.preventDefault()" type="checkbox" [checked]="item.IsArchived" class="iphone-toggle"></td>
                 <td>
                   <a href="javascript:void(0);" (click)="edit(item)">Edit</a> |
                   <a href="javascript:void(0);" (click)="delete(item.JobLocationId)">Delete</a>

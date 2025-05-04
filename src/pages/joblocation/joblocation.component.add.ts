@@ -25,82 +25,23 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                 </div>
                 <form #neoAddForm="ngForm" (submit)="onSubmit(neoAddForm)" class="box neo-add-form" novalidate>
                 <div class="modal-body">
-                    <div class="row edit-form-field-container">
-                        
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>JobLocationId <span class="field-validation-valid" data-valmsg-for="JobLocationId" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.JobLocationId" type="text" name="JobLocationId" placeholder="JobLocationId" class="form-control" data-val="true" data-val-required="The JobLocationId field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
+                  <div class="row edit-form-field-container">
+                  <div class="col-lg-12">
                   <div class="form-group">
                     <label>Location <span class="field-validation-valid" data-valmsg-for="Location" data-valmsg-replace="true"></span>
                     </label>
                     <input [(ngModel)]="obj.Location" type="text" name="Location" placeholder="Location" class="form-control" data-val="true" data-val-required="The Location field is required." autocomplete="off" />
                   </div>
                 </div>
-                
-
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <label>CreatedBy <span class="field-validation-valid" data-valmsg-for="CreatedBy" data-valmsg-replace="true"></span>
+                    <label>Is Archived ?  &nbsp;&nbsp;&nbsp;<span class="field-validation-valid" data-valmsg-for="IsArchived" data-valmsg-replace="true"></span>
                     </label>
-                    <input [(ngModel)]="obj.CreatedBy" type="text" name="CreatedBy" placeholder="CreatedBy" class="form-control" data-val="true" data-val-required="The CreatedBy field is required." autocomplete="off" />
+                    <input [(ngModel)]="obj.IsArchived" type="checkbox" name="IsArchived" placeholder="IsArchived" data-val="true" data-val-required="The IsArchived field is required." autocomplete="off" />
                   </div>
                 </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>CreatedOn <span class="field-validation-valid" data-valmsg-for="CreatedOn" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.CreatedOn" type="text" name="CreatedOn" placeholder="CreatedOn" class="form-control" data-val="true" data-val-required="The CreatedOn field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>ModifiedBy <span class="field-validation-valid" data-valmsg-for="ModifiedBy" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.ModifiedBy" type="text" name="ModifiedBy" placeholder="ModifiedBy" class="form-control" data-val="true" data-val-required="The ModifiedBy field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>ModifiedOn <span class="field-validation-valid" data-valmsg-for="ModifiedOn" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.ModifiedOn" type="text" name="ModifiedOn" placeholder="ModifiedOn" class="form-control" data-val="true" data-val-required="The ModifiedOn field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>IsArchived <span class="field-validation-valid" data-valmsg-for="IsArchived" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.IsArchived" type="text" name="IsArchived" placeholder="IsArchived" class="form-control" data-val="true" data-val-required="The IsArchived field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Jobdetails <span class="field-validation-valid" data-valmsg-for="Jobdetails" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Jobdetails" type="text" name="Jobdetails" placeholder="Jobdetails" class="form-control" data-val="true" data-val-required="The Jobdetails field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                    </div>
-                </div>
+              </div>
+              </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-flat fa fa-times" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Close</button>
                 <button type="submit" class="btn btn-info btn-flat fa fa-save">&nbsp;&nbsp;&nbsp;Save changes</button>
@@ -134,6 +75,11 @@ export class AddComponent {
     onSubmit(form: NgForm): void {
         var isValid = validateForm(this.formElement)
         if (isValid) {
+          this.obj.JobLocationId = 0;
+          this.obj.CreatedOn = null;
+          this.obj.CreatedBy = null;
+          this.obj.ModifiedBy = null;
+          this.obj.ModifiedOn = null;
             this.api.add(this.obj).subscribe((resp) => {
                 alert(resp.message);
                 hideShowModal(this.getModal(), 'hide');

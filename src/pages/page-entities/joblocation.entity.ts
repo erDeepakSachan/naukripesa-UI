@@ -17,7 +17,7 @@ CreatedBy: '',
 CreatedOn: '',
 ModifiedBy: '',
 ModifiedOn: '',
-IsArchived: '',
+IsArchived: false,
 Jobdetails: '',
     }
 }
