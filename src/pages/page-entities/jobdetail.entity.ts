@@ -20,7 +20,7 @@ export const emptyJobdetail = (): Jobdetail => {
     return {
         JobDetailId: 0,
         CompanyId: 0,
-        JobLocationId: '',
+        JobLocationId: 0,
         InterviewDate: '',
         InterviewTime: '',
         InterviewLocation: '',

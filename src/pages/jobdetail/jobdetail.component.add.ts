@@ -45,8 +45,7 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                   <div class="form-group">
                     <label>Job Location <span class="field-validation-valid" data-valmsg-for="JobLocationId" data-valmsg-replace="true"></span>
                     </label>
-                    <!-- <input [(ngModel)]="obj.JobLocationId" type="text" name="JobLocationId" placeholder="JobLocationId" class="form-control" data-val="true" data-val-required="The JobLocationId field is required." autocomplete="off" /> -->
-                    <select [(ngModel)]="obj.JobLocationId" name="JobLocationId" class="form-control">
+                    <select [(ngModel)]="obj.JobLocationId" name="JobLocationId" class="form-control" data-val="true" data-val-range="The JobLocation field is required." data-val-required="The JobLocation field is required." data-val-range-min="1" data-val-range-max="999999">
                       <option value="0">--SELECT--</option>
                       <option value="{{ item.Value }}" *ngFor="let item of jobLocationList" >
                         {{ item.Text }}
@@ -160,8 +159,8 @@ export class AddComponent {
     if (isValid) {
       debugger;
       this.obj.JobDetailId = 0;
-      delete this.obj.JobLocation;
-      delete this.obj.Company;
+      this.obj.JobLocation = null;
+      this.obj.Company = null;
       this.api.add(this.obj).subscribe((resp) => {
         alert(resp.message);
         hideShowModal(this.getModal(), 'hide');
