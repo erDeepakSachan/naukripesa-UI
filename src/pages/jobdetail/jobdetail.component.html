@@ -58,7 +58,7 @@
               <ng-container *ngIf="item.JobDetailId !== 0">
                 <td>{{ item.Company?.Name }}</td>
                 <td>{{ item.JobLocation?.Location }}</td>
-                <td>{{ item.InterviewDate }}</td>
+                <td>{{ item.InterviewDate | date: 'dd-MMM-yyyy'}}</td>
                 <td>{{ item.InterviewTime }}</td>
                 <td>{{ item.InterviewLocation }}</td>
                 <td>{{ item.Qualification }}</td>

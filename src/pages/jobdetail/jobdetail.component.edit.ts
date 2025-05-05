@@ -27,30 +27,30 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
       <form #neoEditForm="ngForm" (submit)="onSubmit(neoEditForm)" class="box neo-edit-form" novalidate="novalidate">
         <div class="modal-body">
           <div class="row edit-form-field-container">
-            
-                <div class="col-lg-12">
+                
+
+          <div class="col-lg-12">
                   <div class="form-group">
-                    <label>JobDetailId <span class="field-validation-valid" data-valmsg-for="JobDetailId" data-valmsg-replace="true"></span>
+                    <label>Company <span class="field-validation-valid" data-valmsg-for="CompanyId" data-valmsg-replace="true"></span>
                     </label>
-                    <input [(ngModel)]="obj.JobDetailId" type="text" name="JobDetailId" placeholder="JobDetailId" class="form-control" data-val="true" data-val-required="The JobDetailId field is required." autocomplete="off" />
+                    <select [(ngModel)]="obj.CompanyId" name="CompanyId" class="form-control" data-val="true" data-val-range="The Company field is required." data-val-required="The Company field is required." data-val-range-min="1" data-val-range-max="999999">
+                      <option value="0">--SELECT--</option>
+                      <option value="{{item.Value}}" *ngFor="let item of companyList">{{item.Text}}</option>
+                    </select>
                   </div>
                 </div>
                 
 
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <label>CompanyId <span class="field-validation-valid" data-valmsg-for="CompanyId" data-valmsg-replace="true"></span>
+                    <label>Job Location <span class="field-validation-valid" data-valmsg-for="JobLocationId" data-valmsg-replace="true"></span>
                     </label>
-                    <input [(ngModel)]="obj.CompanyId" type="text" name="CompanyId" placeholder="CompanyId" class="form-control" data-val="true" data-val-required="The CompanyId field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>JobLocationId <span class="field-validation-valid" data-valmsg-for="JobLocationId" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.JobLocationId" type="text" name="JobLocationId" placeholder="JobLocationId" class="form-control" data-val="true" data-val-required="The JobLocationId field is required." autocomplete="off" />
+                    <select [(ngModel)]="obj.JobLocationId" name="JobLocationId" class="form-control" data-val="true" data-val-range="The JobLocation field is required." data-val-required="The JobLocation field is required." data-val-range-min="1" data-val-range-max="999999">
+                      <option value="0">--SELECT--</option>
+                      <option value="{{ item.Value }}" *ngFor="let item of jobLocationList" >
+                        {{ item.Text }}
+                      </option>
+                    </select>
                   </div>
                 </div>
                 
@@ -118,24 +118,6 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                 </div>
                 
 
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Company <span class="field-validation-valid" data-valmsg-for="Company" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Company" type="text" name="Company" placeholder="Company" class="form-control" data-val="true" data-val-required="The Company field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>JobLocation <span class="field-validation-valid" data-valmsg-for="JobLocation" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.JobLocation" type="text" name="JobLocation" placeholder="JobLocation" class="form-control" data-val="true" data-val-required="The JobLocation field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
           </div>
         </div>
         <div class="modal-footer">
@@ -158,6 +140,7 @@ export class EditComponent {
 
   api = inject(JobdetailService);
   companyList: DdlItem[] = [];
+  jobLocationList: DdlItem[] = [];
 
   private getModal(): HTMLElement {
     return this.modal.nativeElement;
@@ -167,11 +150,19 @@ export class EditComponent {
     removeValidationErrors(this.formElement);
     hideShowModal(this.getModal(), 'show');
     this.obj = obj;
+    this.api.loadDropDownList('App.Service.CompanyService', obj.CompanyId).subscribe(resp => {
+      this.companyList = resp;
+    });
+    this.api.loadDropDownList('App.Service.JoblocationService', '0').subscribe(resp => {
+      this.jobLocationList = resp;
+    });
   }
 
   onSubmit(form: NgForm): void {
     var isValid = validateForm(this.formElement)
     if (isValid) {
+      this.obj.JobLocation = null;
+      this.obj.Company = null;
       this.api.edit(this.obj).subscribe((resp) => {
         alert(resp.message);
         hideShowModal(this.getModal(), 'hide');
