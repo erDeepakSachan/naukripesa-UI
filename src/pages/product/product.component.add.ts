@@ -7,9 +7,25 @@ import { DdlItem } from '../page-entities/ddl-item.entity';
 import { ProductService } from './product.service';
 import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../../shared/jquery-utils';
 
+import {
+  ChangeDetectorRef,
+  ViewEncapsulation,
+  AfterViewInit,
+} from '@angular/core';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {
+  CKEDITOR_EDITOR,
+  CKEDITOR_CONFIG,
+} from './../../shared/ckeditor.config';
 
 @Component({
-    imports: [CommonModule, FormsModule],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    styles: `
+    @import 'ckeditor5/ckeditor5.css';
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    `,
+    imports: [CommonModule, FormsModule, CKEditorModule],
     selector: 'add-modal',
     template: `
         <div #modal class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
@@ -97,6 +113,18 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                     <input [(ngModel)]="obj.WebPage" type="text" name="WebPage" placeholder="WebPage" class="form-control" data-val="true" data-val-required="The WebPage field is required." autocomplete="off" />
                   </div>
                 </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                  <ckeditor
+                            [editor]="Editor"
+                            [config]="config"
+                            *ngIf="isLayoutReady"
+                            [(ngModel)]="editorData"
+                            [ngModelOptions]="{standalone: true}"
+                          />
+                  </div>
+                </div>
                 
 
                     </div>
@@ -112,7 +140,7 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
         </div>
         </div> 
   `})
-export class AddComponent {
+export class AddComponent implements AfterViewInit {
     @ViewChild('neoAddForm', { read: ElementRef }) formElement!: ElementRef;
     @ViewChild('modal', { static: false }) modal!: ElementRef;
     @Output() shouldRefresh = new EventEmitter<boolean>();
@@ -120,6 +148,19 @@ export class AddComponent {
 
     api = inject(ProductService);
     companyList: DdlItem[] = [];
+
+    private changeDetector = inject(ChangeDetectorRef);
+    public isLayoutReady = false;
+    public Editor = CKEDITOR_EDITOR;
+    public config = {} as typeof CKEDITOR_CONFIG;
+    public editorData = '<p>Start typing…</p>';
+  
+    ngAfterViewInit() {
+      this.config = CKEDITOR_CONFIG;
+      this.isLayoutReady = true;
+      this.changeDetector.detectChanges();
+    }
+
 
     private getModal(): HTMLElement {
         return this.modal.nativeElement;
@@ -132,6 +173,7 @@ export class AddComponent {
     }
 
     onSubmit(form: NgForm): void {
+      console.log('editorData',this.editorData)
         var isValid = validateForm(this.formElement)
         if (isValid) {
             this.api.add(this.obj).subscribe((resp) => {
