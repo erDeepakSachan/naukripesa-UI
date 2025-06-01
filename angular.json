@@ -24,7 +24,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/public-pages/public-assets/images/"
             ],
             "styles": [
               "content-template/css/bootstrap-united.min.css",

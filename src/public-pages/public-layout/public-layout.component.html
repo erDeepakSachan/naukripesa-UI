@@ -1,4 +1,172 @@
-<p>
-  public-layout works!
-</p>
-<router-outlet />
+<body class="host_version">
+    <!-- LOADER -->
+    <!-- $45 Need to have loaded -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="progress-br float shadow">
+                <div class="progress__item"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <!-- Start header -->
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" style="margin-top: -16px;">
+                    <img style="height:60px; width:auto;" src="public-pages/public-assets/images/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
+                    aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-host">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="noidaJobs.html">Jobs In Noida</a></li>
+                        <li class="nav-item"><a class="nav-link" href="guruJobs.html">Jobs In Gurgaon & Faridabad</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="delhiJobs.html">Jobs In Delhi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <!--<ul class="nav navbar-nav navbar-right">
+                        <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a></li>
+                    </ul>-->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+
+    <div class="all-title-box" style="margin-top: -7px;">
+        <div class="container text-center">
+            <h1>Connecting Opportunities with Talent<span class="m_1">A job for you.</span></h1>
+        </div>
+    </div>
+    <div id="overviews" class="section wb">
+        <div class="container" id="output">
+            <router-outlet />
+        </div>
+    </div>
+    <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="public-pages/public-assets/images/logo_01.png" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="public-pages/public-assets/images/logo_02.png" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="public-pages/public-assets/images/logo_03.png" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="public-pages/public-assets/images/logo_04.png" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="public-pages/public-assets/images/logo_05.png" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="public-pages/public-assets/images/logo_06.png" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>About US</h3>
+                        </div>
+                        <p> Welcome to JOBS NCR Portal, We connect freshers and experienced professionals with top job
+                            opportunities across India. Our mission is to make the job search process easy, efficient,
+                            and accessible for everyone, regardless of experience level. With a wide range of job
+                            openings in various industries, we are committed to helping individuals take the next step
+                            in their careers, whether they are just starting out or looking for new challenges. Join
+                            JOBS NCR today and unlock the career opportunities you deserve!</p>
+                        <div class="footer-right">
+                            <ul class="footer-links-soi">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-github"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul><!-- end links -->
+                        </div>
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Information Link</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Contact Details</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="mailto:#">bestjobsinncr&#64;gmail.com</a></li>
+                            <li><a href="www.jobsncr.com">www.naukripesa.com</a></li>
+                            <li>02, H Block, Sector 63, Noida(UP), 201301</li>
+                            <li>+91 ***** *****</li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-center">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2025 <a href="#">JobsNCR</a> Design By :
+                        <a href="#">Sachan Software Solution</a></p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <div class="floating-social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61571906392238&mibextid=ZbWKwL" target="_blank"
+            class="social-icon facebook" title="Facebook">
+            <img src="public-pages/public-assets/images/fb.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon instagram" title="Instagram">
+            <img src="public-pages/public-assets/images/insta.jpg" alt="Instagram">
+        </a>
+        <a href="https://chat.whatsapp.com/Kr7SFjCgBre8FBvPjLLPf2" target="_blank" class="social-icon instagram"
+            title="WhatsApp">
+            <img src="public-pages/public-assets/images/whatsApp.png" alt="Instagram">
+        </a>
+        <a href="https://t.me/+DMiKAhM5twRkMWE1" target="_blank" class="social-icon instagram" title="Telegram">
+            <img src="public-pages/public-assets/images/telegram.jpg" alt="Telegram">
+        </a>
+        <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" title="YouTube">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
+                alt="YouTube">
+        </a>
+    </div>
+</body>

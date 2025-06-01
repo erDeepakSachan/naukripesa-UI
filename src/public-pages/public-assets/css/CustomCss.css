@@ -1,0 +1,53 @@
+/* Floating Social Media Icons Styles */
+.floating-social-icons {
+    position: fixed;
+    bottom: 105px;
+    right: 20px;
+    z-index: 1000;
+}
+
+    .floating-social-icons .social-icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 10px 0;
+        transition: transform 0.3s ease;
+        border-radius: 50%;
+    }
+
+        .floating-social-icons .social-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .floating-social-icons .social-icon:hover {
+            transform: scale(1.1); /* Slightly enlarge the icon on hover */
+        }
+
+        /* Colors for individual icons */
+        .floating-social-icons .social-icon.facebook {
+            background-color: #3b5998;
+        }
+
+        .floating-social-icons .social-icon.twitter {
+            background-color: #00acee;
+        }
+
+        .floating-social-icons .social-icon.instagram {
+            background-color: #e1306c;
+        }
+
+        .floating-social-icons .social-icon.linkedin {
+            background-color: #0077b5;
+        }
+
+        .floating-social-icons .social-icon.youtube {
+            background-color: #ff0000;
+        }
+
+.center {
+    margin: auto;
+    padding: 1px;
+    text-align: center;
+}

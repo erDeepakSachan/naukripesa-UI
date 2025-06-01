@@ -6,10 +6,18 @@ import { Jobdetail, emptyJobdetail } from '../page-entities/jobdetail.entity';
 import { DdlItem } from '../page-entities/ddl-item.entity';
 import { JobdetailService } from './jobdetail.service';
 import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../../shared/jquery-utils';
-
+import {ChangeDetectorRef, ViewEncapsulation, AfterViewInit} from '@angular/core';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
 
 @Component({
-  imports: [CommonModule, FormsModule],
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  styles: `
+    @import 'ckeditor5/ckeditor5.css';
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    `,
+  imports: [CommonModule, FormsModule, CKEditorModule],
   selector: 'add-modal',
   template: `
         <div #modal class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
@@ -109,13 +117,31 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                 </div>
                 
 
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="form-group">
                     <label>Other Detail <span class="field-validation-valid" data-valmsg-for="OtherDetail" data-valmsg-replace="true"></span>
                     </label>
                     <input [(ngModel)]="obj.OtherDetail" type="text" name="OtherDetail" placeholder="OtherDetail" class="form-control" data-val="true" data-val-required="The OtherDetail field is required." autocomplete="off" />
                   </div>
+                </div> -->
+
+                 <div class="col-lg-12">
+                  <div class="form-group">
+                  <ckeditor
+                            id="OtherDetail"
+                            name="OtherDetail"
+                            placeholder="OtherDetail"
+                            data-val="true"
+                            data-val-required="The OtherDetail field is required."
+                            [editor]="Editor"
+                            [config]="config"
+                            *ngIf="isLayoutReady"
+                            [(ngModel)]="obj.OtherDetail"
+                            [ngModelOptions]="{standalone: true}"
+                          />
+                  </div>
                 </div>
+
                 </div>
                 </div>
                 <div class="modal-footer">
@@ -129,11 +155,23 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
         </div>
         </div> 
   `})
-export class AddComponent {
+export class AddComponent implements AfterViewInit {
   @ViewChild('neoAddForm', { read: ElementRef }) formElement!: ElementRef;
   @ViewChild('modal', { static: false }) modal!: ElementRef;
   @Output() shouldRefresh = new EventEmitter<boolean>();
   @Input() obj: Jobdetail = emptyJobdetail();
+
+  private changeDetector = inject(ChangeDetectorRef);
+  public isLayoutReady = false;
+  public Editor = CKEDITOR_EDITOR;
+  public config = {} as typeof CKEDITOR_CONFIG;
+  public editorData = 'SomeValue';
+
+  ngAfterViewInit() {
+      this.config = CKEDITOR_CONFIG;
+      this.isLayoutReady = true;
+      this.changeDetector.detectChanges();
+    }
 
   api = inject(JobdetailService);
   companyList: DdlItem[] = [];
@@ -155,9 +193,11 @@ export class AddComponent {
   }
 
   onSubmit(form: NgForm): void {
-    var isValid = validateForm(this.formElement)
+    //console.log('editorData', this.editorData)
+    debugger;
+    // $45 Need to change below line remove hardcoded true and call validateForm(this.formElement)
+    var isValid = true;  //validateForm(this.formElement)
     if (isValid) {
-      debugger;
       this.obj.JobDetailId = 0;
       this.obj.JobLocation = null;
       this.obj.Company = null;

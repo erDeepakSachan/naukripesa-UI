@@ -1,0 +1,25 @@
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 19px;
+}
+
+.telegram-button {
+    background-color: #24A1DE;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 19px;
+    background-image: url('../images/telegramBlack.png');
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 14px 14px;
+    width: 66px;
+    padding-left: 24px;
+}

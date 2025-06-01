@@ -64,7 +64,7 @@
                 <td>{{ item.Qualification }}</td>
                 <td>{{ item.ContactNumber }}</td>
                 <td>{{ item.Department }}</td>
-                <td>{{ item.OtherDetail }}</td>
+                <td [innerHTML]="item.OtherDetail"></td>
                 <td>
                   <a href="javascript:void(0);" (click)="edit(item)">Edit</a> |
                   <a href="javascript:void(0);" (click)="delete(item.JobDetailId)">Delete</a>
