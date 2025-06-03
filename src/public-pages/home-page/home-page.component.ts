@@ -1,18 +1,47 @@
-import { Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {themeLoad} from '../shared/theme-util'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { themeLoad } from '../shared/theme-util'
+import { JobdetailService } from '../../pages/jobdetail/jobdetail.service';
+import { Jobdetail } from '../../pages/page-entities/jobdetail.entity';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  imports: [CommonModule],
   encapsulation: ViewEncapsulation.None,
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  data: Jobdetail[] = [];
+  chunkedData: Jobdetail[][] = [];
+  totalPageCount: number = 1;
 
-  constructor() { }
+  constructor(public svc: JobdetailService) {
+  }
 
   ngOnInit() {
     themeLoad();
+    this.load();
   }
 
+  load(pageNo: number = 0, fromPager: boolean = false): void {
+    let handle = this.svc.list(pageNo);
+    // if (this.searchText != '') {
+    //   handle = this.svc.search(this.searchText);
+    // }
+    handle.subscribe(resp => {
+      const chunkSize = 4;
+      this.data = resp.data;
+      this.totalPageCount = 1;
+      // if (!fromPager) {
+      //   this.paginationMobile.reInitPagination(this.totalPageCount);
+      //   this.paginationDesktop.reInitPagination(this.totalPageCount);
+      // }
+      debugger;
+      const filteredData = this.data.filter(item => item.JobDetailId !== 0).sort((a, b) => b.JobDetailId - a.JobDetailId);
+      for (let i = 0; i < filteredData.length; i += chunkSize) {
+        this.chunkedData.push(filteredData.slice(i, i + chunkSize));
+      }
+    });
+  }
 }

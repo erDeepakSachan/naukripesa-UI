@@ -38,7 +38,7 @@ export class JobdetailComponent implements OnInit {
       handle = this.svc.search(this.searchText);
     }
     handle.subscribe(resp => {
-      this.data = resp.data;
+      this.data = resp.data.sort((a, b) => b.JobDetailId - a.JobDetailId);
       this.totalPageCount = resp.totalPageCount;
       if (!fromPager) {
         this.paginationMobile.reInitPagination(this.totalPageCount);
