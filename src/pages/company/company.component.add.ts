@@ -27,7 +27,7 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                 <div class="modal-body">
                     <div class="row edit-form-field-container">
                         
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="form-group">
                     <label>CompanyId <span class="field-validation-valid" data-valmsg-for="CompanyId" data-valmsg-replace="true"></span>
                     </label>
@@ -42,7 +42,7 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                     </label>
                     <input [(ngModel)]="obj.CurrencyId" type="text" name="CurrencyId" placeholder="CurrencyId" class="form-control" data-val="true" data-val-required="The CurrencyId field is required." autocomplete="off" />
                   </div>
-                </div>
+                </div> -->
                 
 
                 <div class="col-lg-12">
@@ -56,14 +56,14 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
 
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <label>Description <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                    <label>Address <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
                     </label>
-                    <input [(ngModel)]="obj.Description" type="text" name="Description" placeholder="Description" class="form-control" data-val="true" data-val-required="The Description field is required." autocomplete="off" />
+                    <input [(ngModel)]="obj.Address" type="text" name="Address" placeholder="Address" class="form-control" data-val="true" data-val-required="The Address field is required." autocomplete="off" />
                   </div>
                 </div>
                 
 
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="form-group">
                     <label>CreatedBy <span class="field-validation-valid" data-valmsg-for="CreatedBy" data-valmsg-replace="true"></span>
                     </label>
@@ -96,46 +96,9 @@ import { jQ, hideShowModal, validateForm, removeValidationErrors } from './../..
                     </label>
                     <input [(ngModel)]="obj.ModifiedOn" type="text" name="ModifiedOn" placeholder="ModifiedOn" class="form-control" data-val="true" data-val-required="The ModifiedOn field is required." autocomplete="off" />
                   </div>
-                </div>
-                
-
-                <!-- <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Currency <span class="field-validation-valid" data-valmsg-for="Currency" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Currency" type="text" name="Currency" placeholder="Currency" class="form-control" data-val="true" data-val-required="The Currency field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Jobdetails <span class="field-validation-valid" data-valmsg-for="Jobdetails" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Jobdetails" type="text" name="Jobdetails" placeholder="Jobdetails" class="form-control" data-val="true" data-val-required="The Jobdetails field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Settings <span class="field-validation-valid" data-valmsg-for="Settings" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Settings" type="text" name="Settings" placeholder="Settings" class="form-control" data-val="true" data-val-required="The Settings field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Users <span class="field-validation-valid" data-valmsg-for="Users" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Users" type="text" name="Users" placeholder="Users" class="form-control" data-val="true" data-val-required="The Users field is required." autocomplete="off" />
-                  </div>
                 </div> -->
-                
 
-                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-flat fa fa-times" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Close</button>
@@ -169,7 +132,12 @@ export class AddComponent {
 
     onSubmit(form: NgForm): void {
         var isValid = validateForm(this.formElement)
-        if (isValid) {
+      if (isValid) {
+        this.obj.CompanyId = 0;
+        this.obj.CurrencyId = 1;
+        this.obj.Currency = null;
+        this.obj.CreatedOn = new Date();
+        this.obj.ModifiedOn = null;
             this.api.add(this.obj).subscribe((resp) => {
                 alert(resp.message);
                 hideShowModal(this.getModal(), 'hide');

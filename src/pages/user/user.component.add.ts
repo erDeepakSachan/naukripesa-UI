@@ -170,7 +170,28 @@ import {
                         </select>
                       </div>
                     </div>
+
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                        <label
+                          >Is Archived? &nbsp;&nbsp;&nbsp;
+                          <span
+                            class="field-validation-valid"
+                            data-valmsg-for="IsArchived"
+                            data-valmsg-replace="true"
+                          ></span>
+                        </label>
+                        <input
+                          [(ngModel)]="obj.IsArchived"
+                          type="checkbox"
+                          name="IsArchived"
+                          placeholder="IsArchived"
+                          autocomplete="off"
+                        />
+                      </div>
+                    </div>
                   </div>
+                  
                   <div class="tab-pane active" id="basic-info-add">
                     <div class="col-lg-12">
                       <div class="form-group">
@@ -267,22 +288,26 @@ import {
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label
-                          >Is Archived? &nbsp;&nbsp;&nbsp;
+                          >Password
                           <span
                             class="field-validation-valid"
-                            data-valmsg-for="IsArchived"
+                            data-valmsg-for="Password"
                             data-valmsg-replace="true"
                           ></span>
                         </label>
                         <input
-                          [(ngModel)]="obj.IsArchived"
-                          type="checkbox"
-                          name="IsArchived"
-                          placeholder="IsArchived"
+                          [(ngModel)]="obj.Password"
+                          type="password"
+                          name="Password"
+                          placeholder="Password"
+                          class="form-control"
+                          data-val="true"
+                          data-val-required="*required."
                           autocomplete="off"
                         />
                       </div>
                     </div>
+                    
                   </div>
                 </div>
               </div>
