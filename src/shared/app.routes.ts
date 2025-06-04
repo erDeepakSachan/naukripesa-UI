@@ -19,8 +19,9 @@ import { WebpageComponent } from './../pages/webpage/webpage.component';
 import { DashboardComponent } from './../pages/dashboard/dashboard.component';
 import { JobdetailComponent } from './../pages/jobdetail/jobdetail.component';
 import { JoblocationComponent } from './../pages/joblocation/joblocation.component';
-import {HomePageComponent} from './../public-pages/home-page/home-page.component'
-import {PublicLayoutComponent} from './../public-pages/public-layout/public-layout.component'
+import { HomePageComponent } from './../public-pages/home-page/home-page.component';
+import { PublicLayoutComponent } from './../public-pages/public-layout/public-layout.component';
+import {CompanyComponent} from "../pages/company/company.component"
 
 export const routes: Routes = [
   {
@@ -35,7 +36,7 @@ export const routes: Routes = [
       , { path: 'access-activities', component: AccessActivityComponent }
       , { path: 'AppIcon', component: AppIconComponent }
       , { path: 'MenuCategory', component: MenuCategoryComponent }
-      , { path: 'products', component: ProductComponent }
+      , { path: 'product', component: ProductComponent }
       , { path: 'User', component: UserComponent }
       , { path: 'UserGroup', component: UserGroupComponent }
       , { path: 'UserGroupPermission', component: UserGroupPermissionComponent }
@@ -43,6 +44,7 @@ export const routes: Routes = [
       , { path: 'Webpage', component: WebpageComponent }
       , { path: 'Jobdetail', component: JobdetailComponent }
       , { path: 'Joblocation', component: JoblocationComponent }
+      , {path: 'company', component: CompanyComponent}
     ]
   },
   {
