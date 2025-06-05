@@ -16,6 +16,7 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
   styles: `
     @import 'ckeditor5/ckeditor5.css';
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    @import './jobdetail.component.css';
     `,
   imports: [CommonModule, FormsModule, CKEditorModule],
   selector: 'edit-modal',
@@ -36,8 +37,20 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
       <form #neoEditForm="ngForm" (submit)="onSubmit(neoEditForm)" class="box neo-edit-form" novalidate="novalidate">
         <div class="modal-body">
           <div class="row edit-form-field-container">
-                
-
+             <ul class="nav nav-tabs" role="tablist">
+                  <li class="active">
+                    <a href="#basic-info-add" role="tab" data-toggle="tab"
+                      >Basic Info</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#group-info-add" role="tab" data-toggle="tab"
+                      >Other Info</a
+                    >
+                  </li>
+                </ul>   
+<div class="tab-content">
+              <div class="tab-pane  active" id="basic-info-add">
           <div class="col-lg-12">
                   <div class="form-group">
                     <label>Company <span class="field-validation-valid" data-valmsg-for="CompanyId" data-valmsg-replace="true"></span>
@@ -116,8 +129,8 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                     <input [(ngModel)]="obj.Department" type="text" name="Department" placeholder="Department" class="form-control" data-val="true" data-val-required="The Department field is required." autocomplete="off" />
                   </div>
                 </div>
-                
-
+                </div>
+              <div class="tab-pane" id="group-info-add">
                 <!-- <div class="col-lg-12">
                   <div class="form-group">
                     <label>OtherDetail <span class="field-validation-valid" data-valmsg-for="OtherDetail" data-valmsg-replace="true"></span>
@@ -142,7 +155,8 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                           />
                   </div>
                 </div>
-                
+               </div>
+				</div> 
 
           </div>
         </div>
