@@ -21,7 +21,8 @@ import { JobdetailComponent } from './../pages/jobdetail/jobdetail.component';
 import { JoblocationComponent } from './../pages/joblocation/joblocation.component';
 import { HomePageComponent } from './../public-pages/home-page/home-page.component';
 import { PublicLayoutComponent } from './../public-pages/public-layout/public-layout.component';
-import {CompanyComponent} from "../pages/company/company.component"
+import { CompanyComponent } from "../pages/company/company.component";
+import { JobDetailComponent } from "../public-pages/job-detail/job-detail.component";
 
 export const routes: Routes = [
   {
@@ -44,7 +45,7 @@ export const routes: Routes = [
       , { path: 'Webpage', component: WebpageComponent }
       , { path: 'Jobdetail', component: JobdetailComponent }
       , { path: 'Joblocation', component: JoblocationComponent }
-      , {path: 'company', component: CompanyComponent}
+      , { path: 'company', component: CompanyComponent }
     ]
   },
   {
@@ -56,6 +57,9 @@ export const routes: Routes = [
   {
     path: 'app',
     component: PublicLayoutComponent,
-    children: [{ path: 'home', component: HomePageComponent }]
+    children: [
+      { path: 'home', component: HomePageComponent }
+      , { path: 'jobDetail', component: JobDetailComponent }
+    ]
   }
 ];
