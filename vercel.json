@@ -1,22 +1,28 @@
 {
   "version": 2,
   "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
     {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    },
-    { 
-      "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist/app/browser" } 
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist/app/browser" }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/app-config.js",
-      "destination": "/api/config.js"
+      "src": "/app-config.js",
+      "dest": "/api/config.js"
     },
     {
-      "source": "/(.*)",
-      "destination": "/dist/app/browser/index.html"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/dist/app/browser/index.html"
     }
   ]
 }
