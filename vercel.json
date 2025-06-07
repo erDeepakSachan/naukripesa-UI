@@ -16,7 +16,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/dist/app/browser/$1"
+      "destination": "/dist/app/browser/index.html"
     }
   ]
 }
