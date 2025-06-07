@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/app-config.js",
+      "dest": "/api/config.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/app/browser/index.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/app-config.js",
+      "destination": "/api/config"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/dist/app/browser/$1"
+    }
+  ]
+}
