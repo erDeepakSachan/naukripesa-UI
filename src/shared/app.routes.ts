@@ -26,7 +26,7 @@ import { JobDetailComponent } from "../public-pages/job-detail/job-detail.compon
 
 export const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
@@ -55,10 +55,10 @@ export const routes: Routes = [
     children: [{ path: '', component: LoginComponent }]
   },
   {
-    path: '/',
+    path: 'app',
     component: PublicLayoutComponent,
     children: [
-      { path: '', component: HomePageComponent }
+      { path: 'home', component: HomePageComponent }
       , { path: 'jobDetail', component: JobDetailComponent }
     ]
   }
