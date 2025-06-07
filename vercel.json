@@ -20,9 +20,9 @@
     {
       "handle": "filesystem"
     },
-    {
-      "src": "/.*",
-      "dest": "/dist/app/browser/index.html"
+    { 
+      "src": "/(.*)",
+      "dest": "/dist/app/browser/index.html" 
     }
   ]
 }
