@@ -12,7 +12,7 @@
   "rewrites": [
     {
       "source": "/app-config.js",
-      "destination": "/api/config"
+      "destination": "/api/config.js"
     },
     {
       "source": "/(.*)",
