@@ -6,16 +6,6 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/app-config.js",
-      "dest": "/api/config.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/dist/app/browser/index.html"
-    }
-  ],
   "rewrites": [
     {
       "source": "/app-config.js",
