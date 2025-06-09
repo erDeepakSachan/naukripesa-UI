@@ -31,7 +31,7 @@
               <th>Qualification</th>
               <th>Contact Number</th>
               <th>Department</th>
-              <th>Other Detail</th>
+              <!-- <th>Other Detail</th> -->
               <th class="zui-sticky-col">Action</th>
             </tr>
           </thead>
@@ -64,7 +64,7 @@
                 <td>{{ item.Qualification }}</td>
                 <td>{{ item.ContactNumber }}</td>
                 <td>{{ item.Department }}</td>
-                <td [innerHTML]="item.OtherDetail"></td>
+                <!-- <td [innerHTML]="item.OtherDetail.slice(0, 20)"></td> -->
                 <td>
                   <a href="javascript:void(0);" (click)="edit(item)">Edit</a> |
                   <a href="javascript:void(0);" (click)="delete(item.JobDetailId)">Delete</a>

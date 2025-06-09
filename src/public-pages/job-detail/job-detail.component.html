@@ -1,6 +1,6 @@
 <div class="all-title-box" style="margin-top: -7px;">
     <div class="container text-center">
-        <h1>{{data['CompanyId']}}<span class="m_1">A job for you.</span></h1>
+        <h1>Jon Details<span class="m_1">{{data.Company?.Name}}</span></h1>
     </div>
 </div>
 <div id="overviews" class="section wb">
@@ -13,46 +13,43 @@
                     </div>
                     <div class="post-content">
                         <div class="post-date">
-                            <span class="day">30</span>
-                            <span class="month">Nov</span>
+                            <span class="day"
+                                *ngIf="data.InterviewDate && isFutureOrToday(data.InterviewDate)">New</span>
+                            <!-- <span class="month">Nov</span> -->
                         </div>
                         <div class="meta-info-blog">
                             <span style="font-weight: bold;"><i class="fa fa-calendar"></i> <a href="#"> <span
-                                        style="color: blue;">Inteview Date:</span> May 11, 2015</a> </span>
+                                        style="color: blue;">Inteview Date:</span> {{data.InterviewDate | date:
+                                    'dd-MMM-yyyy'}}</a> </span>
                         </div>
                         <div class="blog-title">
-                            <h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
+                            <h2>{{data.Company?.Name}}</h2>
                         </div>
                         <div class="blog-desc">
-                            <p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets
-                                geuiat operts
-                                elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-                            <blockquote class="default">
-                                Nulla nunc dui, tristique in semper vel, congue sed ligula. Nam dolor ligula, faucibus
-                                id
-                                sodales in, auctor fringilla libero. Pellentesque pellentesque eget tempor tellus. Fusce
-                                lacinia
-                                tempor malesuada. Ut lacus sapien, placerat a ornare nec, elementum sit amet felis.
-                                Maecenas
-                                pretium lorem hendrerit eros sagittis fermentum.
-                            </blockquote>
-                            <p>Phasellus tristique commodo libero, eget dignissim turpis dignissim quis. Morbi sit amet
-                                laoreet
-                                nibh, gravida scelerisque felis. Phasellus ultrices pellentesque ligula et viverra.
-                                Integer
-                                elementum, risus et tempor ultricies, libero turpis pellentesque massa, at facilisis
-                                erat nunc
-                                hendrerit erat. Praesent rhoncus, augue nec condimentum porta, magna dui volutpat augue,
-                                vitae
-                                blandit magna quam in massa. Fusce a rhoncus diam. Proin nec lacinia nibh. Praesent sed
-                                nisi sed
-                                purus dictum laoreet.</p>
-                            <p>Duis at tortor augue. Ut et justo consequat, facilisis lectus facilisis, tincidunt massa.
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                                egestas.
-                                Nam vel vestibulum urna. Fusce sed magna posuere, vehicula odio vitae, tempor arcu.
-                                Pellentesque
-                                eget felis sed eros maximus elementum ultrices a elit. Sed ac sodales enim.</p>
+                            <div class="widget-categories">
+                                <div class="pricingTable pink">
+
+                                    <div class="pricingContent">
+                                        <i class="fa fa-briefcase"></i>
+                                        <ul>
+                                            <li><span class="day"><u>Interview Location:</u></span><a href="#">
+                                                    {{data.InterviewLocation}}</a></li>
+                                            <li><span class="day"><u>interview Time: </u></span><a href="#">
+                                                    {{formatInterviewTime(data.InterviewTime)}}</a></li>
+                                            <li><span class="day"><u>Job Location: </u></span><a href="#">
+                                                    {{data.JobLocation?.Location}}</a></li>
+                                            <li><span class="day"><u>Qualification: </u></span><a href="#">
+                                                    {{data.Qualification}}</a></li>
+                                            <li><span class="day"><u>Department: </u></span><a href="#">
+                                                    {{data.Department}}</a></li>
+                                            <li><span class="day"><u>Contact: </u></span><a href="#">
+                                                    {{data.ContactNumber}}</a></li>
+                                            <li><span class="day" [innerHTML]="data.OtherDetail"></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <p></p>
                         </div>
                     </div>
                 </div>
