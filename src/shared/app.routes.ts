@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './auth-guard';
 import { loginGuard } from './login.guard'
+import AppConstants from './../shared/app-constants'
 import { MainLayoutComponent } from '../layout/main-layout/main-layout.component';
 import { AuthLayoutComponent } from '../layout/auth-layout/auth-layout.component';
 import { AppComponent } from '../app/app.component';
@@ -26,7 +27,7 @@ import { JobDetailComponent } from "../public-pages/job-detail/job-detail.compon
 
 export const routes: Routes = [
   {
-    path: '',
+    path: AppConstants.AdminBaseUrl,
     component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
@@ -55,10 +56,10 @@ export const routes: Routes = [
     children: [{ path: '', component: LoginComponent }]
   },
   {
-    path: 'app',
+    path: '',
     component: PublicLayoutComponent,
     children: [
-      { path: 'home', component: HomePageComponent }
+      { path: '', component: HomePageComponent }
       , { path: 'jobDetail', component: JobDetailComponent }
     ]
   }

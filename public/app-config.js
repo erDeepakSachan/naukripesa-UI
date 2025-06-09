@@ -1,5 +1,5 @@
 window.AppSettings = {
-    "ApiBaseUrl": "https://admin-panel-spa-uibuild.onrender.com/api",
+    "ApiBaseUrl": "https://naukripesa-webapi.onrender.com/api",
     "AppName": "Admin Panel",
     "LogoPath": "/img/logo.png"
 } ;

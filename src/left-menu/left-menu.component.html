@@ -14,7 +14,7 @@
                               [style.color]="item1.IconColor"></i><span> {{item1.Text}}</span></a>
                         <ul *ngIf="item1.Nodes?.length! >  0" class="nav nav-pills nav-stacked">
                               <li routerLinkActive="active" *ngFor="let item2 of item1.Nodes;let i2 = index;">
-                                    <a routerLink="/{{item2.NavUrl}}">
+                                    <a routerLink="{{item2.NavUrl}}">
                                           <i class="fas {{item2.IconCss}}" [style.color]="item2.IconColor"></i>
                                           <span>
                                                 {{item2.Text}}

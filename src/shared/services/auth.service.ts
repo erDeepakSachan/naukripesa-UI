@@ -77,7 +77,7 @@ export class AuthService {
         next: (response) => {
           if (response.isSuccess) {
             localStorage.setItem(AppConstants.AuthTokenKey, response.data.token);
-            this.router.navigate(['/dashboard']);
+            this.router.navigate([`${AppConstants.AdminBaseUrl}/dashboard`]);
           }
         },
         error: () => {
