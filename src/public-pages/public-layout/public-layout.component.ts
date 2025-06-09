@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterModule, RouterOutlet} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
     '../public-assets/css/custom.css',
     '../public-assets/css/CustomCss.css',
   ],
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterModule, CommonModule],
 })
 export class PublicLayoutComponent implements OnInit {
 

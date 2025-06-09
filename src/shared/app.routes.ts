@@ -60,6 +60,9 @@ export const routes: Routes = [
     component: PublicLayoutComponent,
     children: [
       { path: '', component: HomePageComponent }
+      , { path: 'jobs-in-noida', component: HomePageComponent, data: { cityId: 1 } }
+      , { path: 'jobs-in-gurgaon', component: HomePageComponent, data: { cityId: 2 } }
+      , { path: 'jobs-in-delhi', component: HomePageComponent, data: { cityId: 3 } }
       , { path: 'jobDetail', component: JobDetailComponent }
     ]
   }

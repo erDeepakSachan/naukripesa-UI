@@ -13,7 +13,7 @@
     <header class="top-navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" style="margin-top: -16px;">
+                <a class="navbar-brand" [routerLink]="'/'" style="margin-top: -16px;">
                     <img style="height:60px; width:auto;" src="public-pages/public-assets/images/logo.png" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
@@ -24,13 +24,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-host">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="app/home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="noidaJobs.html">Jobs In Noida</a></li>
-                        <li class="nav-item"><a class="nav-link" href="guruJobs.html">Jobs In Gurgaon & Faridabad</a>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/'">Home</a></li>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-noida'">Jobs In Noida</a></li>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-gurgaon'">Jobs In Gurgaon & Faridabad</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="delhiJobs.html">Jobs In Delhi</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-delhi'">Jobs In Delhi</a></li>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/about-us'">About Us</a></li>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/contact-us'">Contact</a></li>
                     </ul>
                     <!--<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a></li>
@@ -107,6 +107,7 @@
                             <li><a href="#">Pricing</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact</a></li>
+                            <li><a href="/admin">Admin</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->

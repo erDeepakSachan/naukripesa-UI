@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { themeLoad } from '../shared/theme-util'
 import { JobdetailService } from '../../pages/jobdetail/jobdetail.service';
 import { Jobdetail } from '../../pages/page-entities/jobdetail.entity';
@@ -16,7 +17,13 @@ export class HomePageComponent implements OnInit {
   chunkedData: Jobdetail[][] = [];
   totalPageCount: number = 1;
 
-  constructor(public svc: JobdetailService) {
+  cityId: number | null = null;
+
+  constructor(public svc: JobdetailService,private route: ActivatedRoute) {
+    this.route.data.subscribe(data => {
+      this.cityId = data["cityId"] ?? null;
+      console.log('this.cityId',this.cityId);
+    });
   }
 
   ngOnInit() {
