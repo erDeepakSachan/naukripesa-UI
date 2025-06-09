@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node .buildx/generate-app-config.js && ng serve",
-    "build": "node .buildx/pre-build.js && ng build && node .buildx/post-build.js",
+    "build": "node .buildx/pre-build.js && ng build && node .buildx/generate-app-config.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@ckeditor/ckeditor5-angular": "^9.1.0",
+    "cheerio": "^1.0.0",
     "ckeditor5": "^45.1.0",
     "dotenv": "^16.4.7",
     "jwt-decode": "^4.0.0",

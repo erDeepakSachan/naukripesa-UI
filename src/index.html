@@ -7,37 +7,9 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-  <script>
-    window.AppSettings = {
-    "ApiBaseUrl": "https://naukripesa-webapi.onrender.com/api",
-    "AppName": "Naukri Pesa",
-    "LogoPath": "/img/logo.png"
-} ;
-    function loadScriptSync(src) {
-        var script = document.createElement("script");
-        script.src = src;
-        script.async = false;
-        script.defer = false;
-
-        var isLoaded = false;
-        script.onload = function () {
-            isLoaded = true;
-        };
-        script.onerror = function () {
-            console.error("Failed to load script:", src);
-            isLoaded = true;
-        };
-
-        document.head.appendChild(script);
-    }
-
-    loadScriptSync("https://naukripesa-webapi.onrender.com/api/Home/NotyOptions?forError=false");
-    loadScriptSync("https://naukripesa-webapi.onrender.com/api/Home/NotyOptions?forError=true");
-  </script>
+  <script src="/app-config.js"></script>
 </head>
-
 <body style="margin:0px;">
   <app-root class="box"></app-root>
 </body>
-
 </html>
