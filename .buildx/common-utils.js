@@ -24,7 +24,7 @@ export const generateAppSettingsFileFromEnv = async function (dataToSubstitute =
 
     const appSettingsString = replaceEnvVariables(data, env);
 
-    console.log(appSettingsString);
+    // console.log(appSettingsString);
     return appSettingsString;
   } catch (err) {
     console.error('Error reading file:', err);
@@ -36,7 +36,7 @@ export const readAppConfigJson = async function () {
   try {
     const filePath = path.join(__dirname, '../app-config.json');
     const configJsonText = await fs.readFile(filePath, 'utf8');
-    console.log(configJsonText);
+    // console.log(configJsonText);
     return configJsonText;
   } catch (err) {
     console.error('Error reading file:', err);

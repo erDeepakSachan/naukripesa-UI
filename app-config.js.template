@@ -1,5 +1,0 @@
-window.AppSettings = {
-    "ApiBaseUrl": "$API_BASE_URL",
-    "AppName": "$APP_NAME",
-    "LogoPath": "$LOGO_PATH"
-};
