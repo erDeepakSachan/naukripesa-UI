@@ -59,7 +59,6 @@ export class JobDetailService extends PageCommonService {
 
   get(id: number): Observable<{ isSuccess: boolean, message: string,data: Jobdetail }> {
     this.showLoader();
-    debugger;
     return this.http.get<{ isSuccess: boolean, message: string,data: Jobdetail }>(`${this.baseUrl}/${id}`)
       .pipe(finalize(() => this.hideLoader()));
   }

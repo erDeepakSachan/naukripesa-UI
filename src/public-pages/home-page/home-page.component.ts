@@ -26,18 +26,9 @@ export class HomePageComponent implements OnInit {
 
   load(pageNo: number = 0, fromPager: boolean = false): void {
     let handle = this.svc.list(pageNo);
-    // if (this.searchText != '') {
-    //   handle = this.svc.search(this.searchText);
-    // }
     handle.subscribe(resp => {
       const chunkSize = 4;
       this.data = resp.data;
-      this.totalPageCount = 1;
-      // if (!fromPager) {
-      //   this.paginationMobile.reInitPagination(this.totalPageCount);
-      //   this.paginationDesktop.reInitPagination(this.totalPageCount);
-      // }
-      debugger;
       const filteredData = this.data.filter(item => item.JobDetailId !== 0).sort((a, b) => b.JobDetailId - a.JobDetailId);
       for (let i = 0; i < filteredData.length; i += chunkSize) {
         this.chunkedData.push(filteredData.slice(i, i + chunkSize));

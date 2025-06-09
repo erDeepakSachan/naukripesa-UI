@@ -76,7 +76,7 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                   <div class="form-group">
                     <label>InterviewTime <span class="field-validation-valid" data-valmsg-for="InterviewTime" data-valmsg-replace="true"></span>
                     </label>
-                    <input [(ngModel)]="obj.InterviewTime" type="text" name="InterviewTime" placeholder="InterviewTime" class="form-control" data-val="true" data-val-required="The InterviewTime field is required." autocomplete="off" />
+                    <input [(ngModel)]="obj.InterviewTime" type="time" name="InterviewTime" placeholder="InterviewTime" class="form-control" data-val="true" data-val-required="The InterviewTime field is required." autocomplete="off" />
                   </div>
                 </div>
                 
