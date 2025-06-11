@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { themeLoad } from '../shared/theme-util'
 import { JobdetailService } from '../../pages/jobdetail/jobdetail.service';
 import { Jobdetail } from '../../pages/page-entities/jobdetail.entity';
 import { CommonModule } from '@angular/common';
@@ -27,12 +26,11 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    themeLoad();
     this.load();
   }
 
-  load(pageNo: number = 0, fromPager: boolean = false): void {
-    let handle = this.svc.list(pageNo);
+  load(pageNo: number = 0, pageSize: number = 40): void {
+    let handle = this.svc.list(pageNo, pageSize);
     handle.subscribe(resp => {
       const chunkSize = 4;
       this.data = resp.data;
