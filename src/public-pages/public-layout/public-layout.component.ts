@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {RouterModule, RouterOutlet} from '@angular/router';
+import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { themeLoad } from '../shared/theme-util'
+import { themeLoad, customJs } from '../shared/theme-util'
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -18,12 +18,17 @@ import { themeLoad } from '../shared/theme-util'
   ],
   imports: [RouterModule, CommonModule],
 })
-export class PublicLayoutComponent implements OnInit {
+export class PublicLayoutComponent implements OnInit, AfterViewInit {
 
   constructor() { }
+  ngAfterViewInit(): void {
+    themeLoad();
+    if (typeof customJs?.initEvents === 'function') {
+      customJs.initEvents();
+    }
+  }
 
   ngOnInit() {
-    themeLoad();
   }
 
 }
