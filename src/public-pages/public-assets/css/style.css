@@ -3871,3 +3871,52 @@ a.link-style3 {
 .course-meta-bot ul li:hover{
 	color: #eea412;
 }
+.collapse.in {
+    /* your styles here */
+    display: block; /* for example */
+}
+
+.navbar-brand img {
+    float: unset;
+    height: unset; 
+    width: unset; 
+    margin-right: unset;
+}
+@media screen and (max-width:768px){
+    .navbar-brand {
+        display: inline-block;
+        padding-top: unset;
+        padding-bottom: unset;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: inherit;
+        white-space: nowrap;
+    }
+    
+    .navbar-toggler:hover{
+        background: #ffffff;
+    }
+    
+    .navbar-toggler:hover .icon-bar{
+        background: #000;
+    }
+    
+    .navbar > .container, .navbar > .container-fluid {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-align: unset;
+        align-items: unset;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+    
+    .container-fluid::after{
+    display: none;
+    }
+    
+    button:focus {
+        outline: none;
+    }
+}

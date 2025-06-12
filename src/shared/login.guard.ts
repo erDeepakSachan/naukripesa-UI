@@ -7,7 +7,7 @@ export const loginGuard: CanActivateFn = () => {
     const token = localStorage.getItem(AppConstants.AuthTokenKey);
 
     if (token) {
-        router.navigate(['/dashboard']);
+        router.navigate([`${AppConstants.AdminBaseUrl}/dashboard`]);
         return false;
     }
 

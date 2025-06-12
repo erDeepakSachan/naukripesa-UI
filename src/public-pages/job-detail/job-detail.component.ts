@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { themeLoad } from '../shared/theme-util'
 import { ActivatedRoute } from '@angular/router';
 import { JobDetailService } from './job-detail.service';
 import { Jobdetail, emptyJobdetail } from '../../pages/page-entities/jobdetail.entity';
@@ -20,7 +19,6 @@ export class JobDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    themeLoad();
     this.route.queryParams.subscribe(params => {
       const id = params['id'];
       console.log('ID:', id);
@@ -31,7 +29,6 @@ export class JobDetailComponent implements OnInit {
         console.log(this.data.CompanyId)
       })
     });
-    //this.load();
   }
 
   isFutureOrToday(dateStr: string | Date): boolean {

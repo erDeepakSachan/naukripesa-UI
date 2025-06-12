@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { themeLoad } from '../shared/theme-util'
 import { JobdetailService } from '../../pages/jobdetail/jobdetail.service';
 import { Jobdetail } from '../../pages/page-entities/jobdetail.entity';
 import { CommonModule } from '@angular/common';
@@ -27,7 +26,6 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    themeLoad();
     this.load();
   }
 
