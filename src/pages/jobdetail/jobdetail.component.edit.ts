@@ -67,7 +67,7 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                   <div class="form-group">
                     <label>InterviewDate <span class="field-validation-valid" data-valmsg-for="InterviewDate" data-valmsg-replace="true"></span>
                     </label>
-                    <input [(ngModel)]="obj.InterviewDate" type="text" name="InterviewDate" placeholder="InterviewDate" class="form-control" data-val="true" data-val-required="The InterviewDate field is required." autocomplete="off" />
+                    <input [(ngModel)]="obj.InterviewDate" type="Date" name="InterviewDate" placeholder="InterviewDate" class="form-control" data-val="true" data-val-required="The InterviewDate field is required." autocomplete="off" />
                   </div>
                 </div>
                 
