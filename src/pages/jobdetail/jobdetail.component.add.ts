@@ -43,6 +43,11 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                     >
                   </li>
                   <li>
+                    <a href="#interview-info-add" role="tab" data-toggle="tab"
+                      >Interview Info</a
+                    >
+                  </li>
+                  <li>
                     <a href="#group-info-add" role="tab" data-toggle="tab"
                       >Other Info</a
                     >
@@ -74,8 +79,27 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                     </select>
                   </div>
                 </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label>Qualification <span class="field-validation-valid" data-valmsg-for="Qualification" data-valmsg-replace="true"></span>
+                    </label>
+                    <input [(ngModel)]="obj.Qualification" type="text" name="Qualification" placeholder="Qualification" class="form-control" data-val="true" data-val-required="The Qualification field is required." autocomplete="off" />
+                  </div>
+                </div>
                 
 
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label>Contact Number <span class="field-validation-valid" data-valmsg-for="ContactNumber" data-valmsg-replace="true"></span>
+                    </label>
+                    <input [(ngModel)]="obj.ContactNumber" type="text" name="ContactNumber" placeholder="ContactNumber" class="form-control" data-val="true" data-val-required="The ContactNumber field is required." autocomplete="off" />
+                  </div>
+                </div>
+
+                
+                </div>
+              <div class="tab-pane" id="interview-info-add">
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label>Interview Date <span class="field-validation-valid" data-valmsg-for="InterviewDate" data-valmsg-replace="true"></span>
@@ -101,25 +125,6 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                     <input [(ngModel)]="obj.InterviewLocation" type="text" name="InterviewLocation" placeholder="InterviewLocation" class="form-control" data-val="true" data-val-required="The InterviewLocation field is required." autocomplete="off" />
                   </div>
                 </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Qualification <span class="field-validation-valid" data-valmsg-for="Qualification" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.Qualification" type="text" name="Qualification" placeholder="Qualification" class="form-control" data-val="true" data-val-required="The Qualification field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Contact Number <span class="field-validation-valid" data-valmsg-for="ContactNumber" data-valmsg-replace="true"></span>
-                    </label>
-                    <input [(ngModel)]="obj.ContactNumber" type="text" name="ContactNumber" placeholder="ContactNumber" class="form-control" data-val="true" data-val-required="The ContactNumber field is required." autocomplete="off" />
-                  </div>
-                </div>
-                
 
                 <div class="col-lg-12">
                   <div class="form-group">
@@ -128,8 +133,10 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
                     <input [(ngModel)]="obj.Department" type="text" name="Department" placeholder="Department" class="form-control" data-val="true" data-val-required="The Department field is required." autocomplete="off" />
                   </div>
                 </div>
-                </div>
+
+              </div>
               <div class="tab-pane" id="group-info-add">
+              
                 <!-- <div class="col-lg-12">
                   <div class="form-group">
                     <label>Other Detail <span class="field-validation-valid" data-valmsg-for="OtherDetail" data-valmsg-replace="true"></span>
@@ -140,6 +147,8 @@ import {CKEDITOR_EDITOR, CKEDITOR_CONFIG} from './../../shared/ckeditor.config';
 
                  <div class="col-lg-12">
                   <div class="form-group">
+                    <label>Other Details <span class="field-validation-valid" data-valmsg-for="Department" data-valmsg-replace="true"></span>
+                    </label>
                   <ckeditor
                             id="OtherDetail"
                             name="OtherDetail"
