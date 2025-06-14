@@ -38,7 +38,7 @@ export class JobDetailComponent implements OnInit {
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Where your next job awaits.' },
       { property: 'og:description', content: 'We provide latest job opening free of cost.' },
-      { property: 'og:image', content: 'https://www.naukripesa.com/images/blog_1.jpg' }
+      { property: 'og:image', content: '../public-assets/images/blog_single' }
     ]);
 
     this.loadFacebookSDK();
