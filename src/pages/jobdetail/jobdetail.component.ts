@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { Jobdetail } from '../page-entities/jobdetail.entity';
 import { JobdetailService } from './jobdetail.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe  } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { EditComponent } from './jobdetail.component.edit';
 import { AddComponent } from './jobdetail.component.add';
@@ -13,7 +13,8 @@ import { hideShowModal } from './../../shared/jquery-utils';
   imports: [CommonModule, RouterModule, EditComponent, AddComponent, PaginationComponent, FormsModule],
   selector: 'app-jobdetail',
   templateUrl: './jobdetail.component.html',
-  styleUrls: ['./jobdetail.component.css']
+  styleUrls: ['./jobdetail.component.css'],
+  providers: [DatePipe]
 })
 export class JobdetailComponent implements OnInit {
   data: Jobdetail[] = [];
@@ -25,7 +26,7 @@ export class JobdetailComponent implements OnInit {
   totalPageCount: number = 1;
   searchText: string = '';
 
-  constructor(public svc: JobdetailService) {
+  constructor(public svc: JobdetailService, private datePipe: DatePipe) {
   }
 
   ngOnInit() {
@@ -53,6 +54,8 @@ export class JobdetailComponent implements OnInit {
 
   edit(obj: Jobdetail): void {
     this.selectedData = { ...obj };
+    debugger;
+    this.selectedData.InterviewDate = this.datePipe.transform(this.selectedData.InterviewDate, 'yyyy-MM-dd');
     this.editComponent.loadForm(this.selectedData);
   }
 
