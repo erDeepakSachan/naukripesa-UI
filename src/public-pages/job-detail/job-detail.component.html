@@ -12,6 +12,21 @@
                         <img src="public-pages/public-assets/images/blog_single.jpg" alt="" class="img-fluid">
                     </div>
                     <div class="post-content">
+                        <div class="meta-info-blog flex gap-3 items-center mt-4">
+                            <!-- Facebook SDK Root -->
+                            <div id="fb-root"></div>
+
+                            <!-- Facebook Share Button -->
+                            <div class="fb-share-button" [attr.data-href]="currentUrl" data-layout="button_count"></div>
+                            <!-- WhatsApp Share Button -->
+                            <button class="share-btn whatsapp" (click)="shareOnWhatsApp()">
+                                <i class="fa fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <!-- Telegram Share Button -->
+                            <button class="share-btn telegram" (click)="shareOnTelegram()">
+                                <i class="fa fa-telegram"></i> Telegram
+                            </button>
+                        </div>
                         <div class="post-date">
                             <span class="day"
                                 *ngIf="data.InterviewDate && isFutureOrToday(data.InterviewDate)">New</span>
@@ -23,7 +38,7 @@
                                     'dd-MMM-yyyy'}}</a> </span>
                         </div>
                         <div class="blog-title">
-                            <h2 class="fa fa-briefcase">  {{data.Company?.Name}}</h2>
+                            <h2 class="fa fa-briefcase"> {{data.Company?.Name}}</h2>
                         </div>
                         <div class="blog-desc">
                             <div class="widget-categories">

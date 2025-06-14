@@ -1,0 +1,52 @@
+.meta-info-blog {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Shared Button Style */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  padding: 6px 4px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+  height: 20px;
+}
+
+/* WhatsApp */
+.share-btn.whatsapp {
+  background-color: #25D366;
+}
+
+.share-btn.whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+/* Telegram */
+.share-btn.telegram {
+  background-color: #0088cc;
+}
+
+.share-btn.telegram:hover {
+  background-color: #007ab8;
+}
+
+/* Icon */
+.share-btn i {
+  font-size: 14px;
+  margin-right: 2px;
+}
+
+/* Facebook Button Container */
+.fb-share-button {
+  line-height: 1;
+}
