@@ -19,9 +19,9 @@ export class JobdetailService extends PageCommonService {
     this.baseUrl = `${this.apiBaseUrl}/jobdetail`
   }
 
-  list(pageNo: number = 0, pageSize: number = 0): Observable<ListingResponse<Jobdetail>> {
+  list(pageNo: number = 0, pageSize: number = 0, cityId: number = 0): Observable<ListingResponse<Jobdetail>> {
     this.showLoader();
-    return this.http.get<{ isSuccess: boolean, data: ListingResponse<Jobdetail> }>(`${this.baseUrl}?pageNo=${pageNo}&pageSize=${pageSize}`, { context: withNoGlobalLoaderGif() }).pipe(
+    return this.http.get<{ isSuccess: boolean, data: ListingResponse<Jobdetail> }>(`${this.baseUrl}?pageNo=${pageNo}&pageSize=${pageSize}&cityId=${cityId}`, { context: withNoGlobalLoaderGif() }).pipe(
       map((response) => {
         if (response.isSuccess) {
           return response.data;

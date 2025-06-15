@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
   }
 
   load(pageNo: number = 0, pageSize: number = 40): void {
-    let handle = this.svc.list(pageNo, pageSize);
+    let handle = this.svc.list(pageNo, pageSize, this.cityId?? undefined);
     handle.subscribe(resp => {
       const chunkSize = 4;
       this.data = resp.data;

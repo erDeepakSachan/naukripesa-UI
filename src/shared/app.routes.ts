@@ -61,8 +61,10 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomePageComponent }
       , { path: 'jobs-in-noida', component: HomePageComponent, data: { cityId: 1 } }
-      , { path: 'jobs-in-gurgaon', component: HomePageComponent, data: { cityId: 2 } }
-      , { path: 'jobs-in-delhi', component: HomePageComponent, data: { cityId: 3 } }
+      , { path: 'jobs-in-Gr-noida', component: HomePageComponent, data: { cityId: 2 } }
+      , { path: 'jobs-in-gurgaon', component: HomePageComponent, data: { cityId: 3 } }
+      , { path: 'jobs-in-delhi', component: HomePageComponent, data: { cityId: 4 } }
+      , { path: 'jobs-in-otherCity', component: HomePageComponent, data: { cityId: 5 } }
       , { path: 'jobDetail', component: JobDetailComponent }
     ]
   }

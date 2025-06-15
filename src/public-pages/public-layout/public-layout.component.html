@@ -25,10 +25,19 @@
                 <div class="collapse navbar-collapse" id="navbars-host">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/'">Home</a></li>
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-noida'">Jobs In Noida</a></li>
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-gurgaon'">Jobs In Gurgaon & Faridabad</a>
-                        </li>
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-delhi'">Jobs In Delhi</a></li>
+                        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Jons In NCR </a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item dd-menu" [routerLink]="'/jobs-in-noida'">Jobs In Noida</a>
+                                <a class="dropdown-item dd-menu" [routerLink]="'/jobs-in-Gr-noida'">Jobs In Gr. Noida</a>
+                                <a class="dropdown-item dd-menu" [routerLink]="'/jobs-in-gurgaon'">Jobs In Gurgaon & Faridabad</a>
+                                <a class="dropdown-item dd-menu" [routerLink]="'/jobs-in-delhi'">Jobs In Delhi</a>
+							</div>
+						</li>
+                        
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-otherCity'">Other City</a></li>
+                        <!-- <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-gurgaon'">Jobs In Gurgaon & Faridabad</a></li>
+                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/jobs-in-delhi'">Jobs In Delhi</a></li> -->
                         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/about-us'">About Us</a></li>
                         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" [routerLink]="'/contact-us'">Contact</a></li>
                     </ul>
